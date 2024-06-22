@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Welcome to the Learning Management System</h1>
+  <p>This is the home page.</p>
+  {% if user.is_authenticated %}
+    <p><a href="{% url 'user_courses' %}">View My Courses</a></p>
+  {% else %}
+    <p><a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Sign Up</a></p>
+  {% endif %}
+{% endblock %}

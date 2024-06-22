@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ lesson.title }}</h2>
+  <p>{{ lesson.content }}</p>
+  <h3>Progress</h3>
+  <p>Lesson Completed: {{ lesson_progress.completed }}</p>
+  <h3>Tasks</h3>
+  <ul>
+    {% for task in tasks %}
+      <li>
+        {{ task.title }} - {{ task.description }} - Due: {{ task.due_date }}
+        <p>Task Completed: {{ task.progresses.get(user=request.user).completed }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
